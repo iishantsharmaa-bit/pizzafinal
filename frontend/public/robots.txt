@@ -1,0 +1,16 @@
+# Block all bots from unused routes (external ordering used)
+User-agent: *
+Allow: /
+Allow: /contact
+Disallow: /admin
+Disallow: /menu
+Disallow: /cart
+Disallow: /orders
+Disallow: /enable-push
+Disallow: /api
+
+# Allow CSS and JS for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+
+Sitemap: https://pizzamammamia.no/sitemap.xml
