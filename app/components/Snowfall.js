@@ -4,11 +4,22 @@ import { useEffect, useState } from 'react';
 
 export default function Snowfall() {
   const [snowflakes, setSnowflakes] = useState([]);
+  const [isWinter, setIsWinter] = useState(false);
 
-  
   useEffect(() => {
-    // Generate snowflakes
-    const flakes = Array.from({ length: 50 }, (_, i) => ({
+    // Only show snowfall during winter months (Nov-Feb) to reduce unnecessary renders
+    const currentMonth = new Date().getMonth(); // 0-11
+    const winterMonths = [0, 1, 10, 11]; // Jan, Feb, Nov, Dec
+    
+    if (!winterMonths.includes(currentMonth)) {
+      setIsWinter(false);
+      return;
+    }
+    
+    setIsWinter(true);
+    
+    // Generate fewer snowflakes (30 instead of 50) to reduce DOM operations
+    const flakes = Array.from({ length: 30 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       animationDuration: 10 + Math.random() * 20,

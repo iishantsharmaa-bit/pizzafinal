@@ -1,13 +1,44 @@
-# Block all bots from unused routes (external ordering used)
+# Default for all bots (including Google, Bing)
 User-agent: *
 Allow: /
 Allow: /contact
 Disallow: /admin
-Disallow: /menu
-Disallow: /cart
-Disallow: /orders
-Disallow: /enable-push
 Disallow: /api
+Crawl-delay: 10
+
+# Good search engines - full access, minimal delay
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+# Block aggressive SEO tool bots (NOT search engines)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SerpstatBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
 
 # Allow CSS and JS for proper rendering
 Allow: /*.css$
