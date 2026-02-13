@@ -18,16 +18,17 @@ User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 10
 
-# Social media bots - Strict limits (link preview still works)
+# Block Facebook/Meta bots completely (causing redirect loop issues)
 User-agent: facebookexternalhit
-Crawl-delay: 60
+Disallow: /
 
 User-agent: Facebot
-Crawl-delay: 60
+Disallow: /
 
 User-agent: meta-externalagent
-Crawl-delay: 60
+Disallow: /
 
+# Other social - limited access
 User-agent: Twitterbot
 Crawl-delay: 30
 
