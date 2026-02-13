@@ -1,21 +1,40 @@
-# Default for all bots (including Google, Bing)
+# Default for all bots
 User-agent: *
 Allow: /
-Allow: /contact
 Disallow: /admin
-Disallow: /api
-Crawl-delay: 10
+Disallow: /api/
+Crawl-delay: 30
 
-# Good search engines - full access, minimal delay
+# Search engines - Fast access for SEO (CRITICAL for ranking)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 2
 
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 5
 
-# Block aggressive SEO tool bots (NOT search engines)
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 10
+
+# Social media bots - Strict limits (link preview still works)
+User-agent: facebookexternalhit
+Crawl-delay: 60
+
+User-agent: Facebot
+Crawl-delay: 60
+
+User-agent: meta-externalagent
+Crawl-delay: 60
+
+User-agent: Twitterbot
+Crawl-delay: 30
+
+User-agent: WhatsApp
+Crawl-delay: 30
+
+# Block aggressive SEO tool bots (NOT search engines - no SEO impact)
 User-agent: AhrefsBot
 Disallow: /
 
@@ -38,6 +57,9 @@ User-agent: SerpstatBot
 Disallow: /
 
 User-agent: MegaIndex
+Disallow: /
+
+User-agent: Barkrowler
 Disallow: /
 
 # Allow CSS and JS for proper rendering
