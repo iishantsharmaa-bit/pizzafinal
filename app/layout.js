@@ -2,6 +2,9 @@ import './globals.css'
 import Footer from '@/components/Footer'
 import { Providers } from './providers'
 
+// Enable ISR with 1-hour revalidation for meta crawlers
+export const revalidate = 3600; // Revalidate every hour (3600 seconds)
+
 export const metadata = {
   metadataBase: new URL('https://pizzamammamia.no'),
   title: {

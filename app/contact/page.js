@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import Header from '../components/Header';
 
+// Enable ISR with 1-hour revalidation for meta crawlers
+export const revalidate = 3600; // Revalidate every hour (3600 seconds)
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">

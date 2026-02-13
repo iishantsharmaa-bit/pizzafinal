@@ -6,6 +6,9 @@ import OfferCountdown from './components/OfferCountdown'
 import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
 
+// Enable ISR with 1-hour revalidation for meta crawlers
+export const revalidate = 3600; // Revalidate every hour (3600 seconds)
+
 export default function Home() {
   const { t } = useLanguage();
 

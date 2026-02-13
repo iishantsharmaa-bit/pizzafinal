@@ -18,21 +18,26 @@ User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 10
 
-# Block Facebook/Meta bots completely (causing redirect loop issues)
+# Facebook/Meta bots - Now allowed with crawl delay (serving static cached content)
 User-agent: facebookexternalhit
-Disallow: /
+Allow: /
+Crawl-delay: 60
 
 User-agent: Facebot
-Disallow: /
+Allow: /
+Crawl-delay: 60
 
 User-agent: meta-externalagent
-Disallow: /
+Allow: /
+Crawl-delay: 60
 
 # Other social - limited access
 User-agent: Twitterbot
+Allow: /
 Crawl-delay: 30
 
 User-agent: WhatsApp
+Allow: /
 Crawl-delay: 30
 
 # Block aggressive SEO tool bots (NOT search engines - no SEO impact)
