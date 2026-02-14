@@ -1,8 +1,6 @@
 'use client';
 
 import Header from './components/Header'
-import Snowfall from './components/Snowfall'
-import OfferCountdown from './components/OfferCountdown'
 import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -17,9 +15,8 @@ export default function Home() {
 
 
 
-  return (
+ return (
     <div className="min-h-screen pt-20">
-      <Snowfall />
       {/* Header */}
       <Header />
 
@@ -28,7 +25,7 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="relative min-h-[650px] md:min-h-[750px] overflow-hidden">
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/hero-pizza.jpeg"
@@ -38,14 +35,17 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
 
-        <div className="relative h-full flex items-center justify-center text-center px-2 sm:px-4 pt-12 md:pt-16 pb-12">
-          <div className="max-w-5xl w-full">
-            <h1 className="font-['Playfair_Display'] text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight tracking-tight">
-              VINTER OFFER PI𝙕𝙕𝘼 𝙈𝘼𝙈𝙈𝘼 𝙈𝙄𝘼 𝙃𝙊𝙎𝙇𝙀
+        <div className="relative h-full flex items-center justify-center text-center px-4">
+          <div className="max-w-4xl">
+            <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
+              PIZZA MAMMA MIA HOSLE
             </h1>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-6 md:mb-8 font-semibold drop-shadow-lg">
+              {t('home.heroSubtitle')}
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-4 md:mb-6">
               <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer">
-                <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
+                <button className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
                   {t('home.viewMenu')} 📋
                 </button>
               </a>
@@ -62,9 +62,6 @@ export default function Home() {
                 92 92 96 10
               </span>
             </a>
-
-            {/* Winter Offer Countdown */}
-            <OfferCountdown />
 
             
 
@@ -214,7 +211,7 @@ export default function Home() {
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
                 <img
-                  src="/images/fresh-indgredients.jpg"
+                  src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80"
                   alt="Fresh Ingredients"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
