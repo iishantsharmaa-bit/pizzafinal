@@ -33,7 +33,7 @@ export default function OfferCountdown() {
     return () => clearInterval(timer);
   }, []);
 
-  if (status === 'expired') return null;
+  // if (status === 'expired') return null; // Commented out - will manually close
 
   return (
     <div className="mt-8 relative z-10 w-full max-w-[340px] mx-auto">
