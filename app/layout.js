@@ -36,6 +36,11 @@ export const metadata = {
     description: 'Order delicious authentic Italian dishes for pickup. Best pizza in Hosle, Norway.',
     images: ['/images/hero-pizza.jpeg'],
   },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   robots: {
     index: true,
     follow: true,
