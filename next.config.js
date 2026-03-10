@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   // Prevent trailing slash redirects (avoid 307 loops)
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
