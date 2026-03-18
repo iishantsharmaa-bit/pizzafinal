@@ -43,8 +43,13 @@ export default function Home() {
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-6 md:mb-8 font-semibold drop-shadow-lg">
               {t('home.heroSubtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-4 md:mb-6">
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer">
+            <div className="flex flex-col gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6">
+              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/50 active:scale-95">
+                  View Deals 🏷️
+                </button>
+              </a>
+              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <button className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
                   {t('home.viewMenu')} 📋
                 </button>
