@@ -1,10 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 
-export default function BlogList({ blogs }) {
+export default function BlogList() {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedBlog, setSelectedBlog] = useState(null);
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const res = await fetch('https://pizza-adminblog.vercel.app/api/blogs');
+        if (res.ok) {
+          const data = await res.json();
+          setBlogs(Array.isArray(data) ? data : (data.blogs || data.data || []));
+        }
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchBlogs();
+  }, []);
 
   // Close modal when clicking outside
   const handleBackdropClick = (e) => {
@@ -29,7 +48,11 @@ export default function BlogList({ blogs }) {
             </p>
           </div>
 
-          {!blogs || blogs.length === 0 ? (
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
+            </div>
+          ) : !blogs || blogs.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center">
               <svg className="h-16 w-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
