@@ -39,6 +39,9 @@ export default function Header() {
             <Link href="/contact" className="text-gray-700 hover:text-red-800 font-medium transition-colors text-sm xl:text-base">
               {t('common.contact')}
             </Link>
+            <Link href="/blog" className="text-gray-700 hover:text-red-800 font-medium transition-colors text-sm xl:text-base">
+              Blog
+            </Link>
           </nav>
 
           {/* Contact Details + Actions */}
@@ -173,6 +176,13 @@ export default function Header() {
                 className="block px-4 py-2 text-gray-700 hover:bg-red-100 hover:text-red-800 font-medium transition-colors rounded"
               >
                 {t('common.contact')}
+              </Link>
+              <Link 
+                href="/blog" 
+                onClick={() => setShowMobileMenu(false)}
+                className="block px-4 py-2 text-gray-700 hover:bg-red-100 hover:text-red-800 font-medium transition-colors rounded"
+              >
+                Blog
               </Link>
             </div>
 
