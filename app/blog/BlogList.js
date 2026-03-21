@@ -86,7 +86,7 @@ export default function BlogList() {
                   className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-100 cursor-pointer group"
                   onClick={() => setSelectedBlog(blog)}
                 >
-                  <div className="relative h-64 w-full overflow-hidden">
+                  <div className="relative aspect-[3/2] w-full overflow-hidden">
                     <img
                       src={blog.imageUrl}
                       alt={blog.title}
@@ -141,11 +141,11 @@ export default function BlogList() {
             </button>
 
             {/* Modal Image */}
-            <div className="relative h-64 sm:h-80 w-full bg-gray-50 flex items-center justify-center rounded-t-2xl">
+            <div className="relative aspect-[3/2] w-full bg-gray-50 flex items-center justify-center rounded-t-2xl overflow-hidden">
               <img
                 src={selectedBlog.imageUrl}
                 alt={selectedBlog.title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
             </div>
 
