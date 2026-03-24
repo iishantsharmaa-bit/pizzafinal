@@ -1,7 +1,11 @@
-'use client';
-
-import Link from 'next/link';
 import Header from '../components/Header';
+
+export const metadata = {
+  title: {
+    absolute: 'Contact Pizza Mamma Mia | Order, Support & Location',
+  },
+  description: 'Get in touch with Pizza Mamma Mia for orders, inquiries, or support. Find location details, opening hours, and contact info for quick assistance.',
+};
 
 // Enable ISR with 1-hour revalidation for meta crawlers
 export const revalidate = 3600; // Revalidate every hour (3600 seconds)

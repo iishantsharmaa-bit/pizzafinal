@@ -1,6 +1,7 @@
 import './globals.css'
 import Footer from '@/components/Footer'
 import { Providers } from './providers'
+import Script from 'next/script'
 
 // Enable ISR with 1-hour revalidation for meta crawlers
 export const revalidate = 3600; // Revalidate every hour (3600 seconds)
@@ -8,15 +9,15 @@ export const revalidate = 3600; // Revalidate every hour (3600 seconds)
 export const metadata = {
   metadataBase: new URL('https://pizzamammamia.no'),
   title: {
-    default: 'Pizzamammamia - Authentic Italian Restaurant',
+    default: 'Beste Pizza Hosle | Takeaway & Italiensk Pizza',
     template: '%s | Pizzamammamia'
   },
-  description: 'Order delicious authentic Italian dishes for pickup. Best pizza in Hosle, Norway.',
+  description: 'Bestill fersk og italiensk pizza i Hosle. Pizza takeaway, rask levering og beste pizza i Hosle. Enkel pizza bestilling hos Pizza Mamma Mia.',
   keywords: ['pizza', 'italian restaurant', 'hosle', 'norway', 'authentic pizza', 'pizza delivery'],
   authors: [{ name: 'Pizzamammamia' }],
   openGraph: {
-    title: 'Pizzamammamia - Authentic Italian Restaurant',
-    description: 'Order delicious authentic Italian dishes for pickup. Best pizza in Hosle, Norway.',
+    title: 'Beste Pizza Hosle | Takeaway & Italiensk Pizza',
+    description: 'Bestill fersk og italiensk pizza i Hosle. Pizza takeaway, rask levering og beste pizza i Hosle. Enkel pizza bestilling hos Pizza Mamma Mia.',
     url: 'https://pizzamammamia.no',
     siteName: 'Pizzamammamia',
     locale: 'en_US',
@@ -32,8 +33,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pizzamammamia - Authentic Italian Restaurant',
-    description: 'Order delicious authentic Italian dishes for pickup. Best pizza in Hosle, Norway.',
+    title: 'Beste Pizza Hosle | Takeaway & Italiensk Pizza',
+    description: 'Bestill fersk og italiensk pizza i Hosle. Pizza takeaway, rask levering og beste pizza i Hosle. Enkel pizza bestilling hos Pizza Mamma Mia.',
     images: ['/images/hero-pizza.jpeg'],
   },
   icons: {
@@ -52,6 +53,9 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'd25WpQjnx7_y61XIX8DCS94hKcB3hL8H2tjMVd6O_c4',
+  },
 }
 
 export const viewport = {
@@ -64,6 +68,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-37Y3JDY6X1"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-37Y3JDY6X1');
+          `}
+        </Script>
         <Providers>
           <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
