@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://pizzamammamia.no/</title>
+  <link>https://pizzamammamia.no/</link>
+
+<item>
+     <link>https://pizzamammamia.no/</link>
+     <title>Pizzamammamia - Authentic Italian Restaurant</title>
+     <description>Order delicious authentic Italian dishes for pickup. Best pizza in Hosle, Norway.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://pizzamammamia.no/contact</link>
+     <title>Pizzamammamia - Authentic Italian Restaurant</title>
+     <description>Order delicious authentic Italian dishes for pickup. Best pizza in Hosle, Norway.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://pizzamammamia.no/blog</link>
+     <title>Blog | Our Latest Updates | Pizzamammamia</title>
+     <description>Read our latest blogs and updates.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
