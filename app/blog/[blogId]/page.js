@@ -28,6 +28,7 @@ function findBlogById(blogs, blogId) {
 }
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export async function generateMetadata({ params }) {
   const blogs = await fetchBlogs();
