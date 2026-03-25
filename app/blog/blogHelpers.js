@@ -47,20 +47,6 @@ export function formatBlogDate(createdAt) {
   });
 }
 
-export function getBlogExcerpt(content = '', maxLength = 170) {
-  const decodedContent = decodeBasicEntities(String(content));
-  const plainText = decodedContent.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-
-  if (!plainText) {
-    return 'Read this article for more details.';
-  }
-
-  if (plainText.length <= maxLength) {
-    return plainText;
-  }
-
-  return `${plainText.slice(0, maxLength).trim()}...`;
-}
 
 export function normalizeBlogHtml(content = '') {
   if (!content) return '';

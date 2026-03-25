@@ -64,8 +64,6 @@ export default function BlogList() {
               {blogs.map((blog, index) => {
                 const blogId = getBlogIdentifier(blog, index);
                 const formattedDate = formatBlogDate(blog.createdAt);
-                const excerpt = getBlogExcerpt(blog.content || '');
-
                 return (
                   <Link
                     key={blogId}
@@ -87,9 +85,6 @@ export default function BlogList() {
                     <h2 className="text-2xl font-bold text-gray-900 mb-3 capitalize line-clamp-2">
                       {blog.title}
                     </h2>
-                    <p className="text-gray-600 mb-6 flex-grow text-sm line-clamp-3">
-                      {excerpt}
-                    </p>
                     
                     <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
                       <span className="text-red-600 font-semibold group-hover:text-red-700 transition-colors flex items-center gap-2">
