@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/**"
       - "app/**"
       - "src/**"
       - "public/**"
@@ -13,6 +14,7 @@ on:
       - "package-lock.json"
   pull_request:
     paths:
+      - ".github/workflows/**"
       - "app/**"
       - "src/**"
       - "public/**"
@@ -45,9 +47,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Build (must output to `out/`)
+      # 4️⃣ Build for Cloudflare Pages (outputs `.vercel/output/static`)
       - name: Build project
-        run: npm run build
+        run: npx --yes @cloudflare/next-on-pages@1
 
       # 5️⃣ Deploy to Cloudflare Pages (conditional)
       - name: Deploy to Cloudflare Pages
@@ -61,7 +63,7 @@ jobs:
 
           echo "Deploying Pages branch: $BRANCH_NAME"
 
-          npx wrangler pages deploy out \
+          npx --yes wrangler pages deploy .vercel/output/static \
             --project-name=pizzamammia \
             --branch "$BRANCH_NAME"
 
