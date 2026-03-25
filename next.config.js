@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   // Prevent trailing slash redirects (avoid 307 loops)
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
@@ -20,9 +19,6 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-  },
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
   // Cache headers for static assets
   async headers() {

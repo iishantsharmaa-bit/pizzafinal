@@ -23,30 +23,16 @@ async function fetchBlogs() {
 }
 
 function findBlogById(blogs, blogId) {
-  return blogs.find((blog, index) => getBlogIdentifier(blog, index) === blogId);
+  const normalizedBlogId = String(blogId || '').trim().toLowerCase();
+  return blogs.find((blog, index) => String(getBlogIdentifier(blog, index)).trim().toLowerCase() === normalizedBlogId);
 }
 
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const blogs = await fetchBlogs();
-  const seen = new Set();
-
-  return blogs
-    .map((blog, index) => getBlogIdentifier(blog, index))
-    .filter((blogId) => {
-      if (!blogId || seen.has(blogId)) {
-        return false;
-      }
-      seen.add(blogId);
-      return true;
-    })
-    .map((blogId) => ({ blogId }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
   const blogs = await fetchBlogs();
-  const blog = findBlogById(blogs, params.blogId);
+  const requestedBlogId = decodeURIComponent(params.blogId || '');
+  const blog = findBlogById(blogs, requestedBlogId);
 
   if (!blog) {
     return {
@@ -68,7 +54,8 @@ export default async function BlogDetailPage({ params }) {
     notFound();
   }
   
-  const blog = findBlogById(blogs, params.blogId);
+  const requestedBlogId = decodeURIComponent(params.blogId || '');
+  const blog = findBlogById(blogs, requestedBlogId);
 
   if (!blog) {
     notFound();
