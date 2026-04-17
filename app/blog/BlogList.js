@@ -62,7 +62,8 @@ export default function BlogList() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {blogs.map((blog, index) => {
-                const blogId = getBlogIdentifier(blog, index);
+                const rawTitle = String(blog?.title || getBlogIdentifier(blog, index));
+                const blogId = rawTitle.trim().replace(/\s+/g, '-');
                 const formattedDate = formatBlogDate(blog.createdAt);
                 return (
                   <Link

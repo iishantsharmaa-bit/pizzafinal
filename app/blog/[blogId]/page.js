@@ -2,12 +2,51 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '../../components/Header';
-import { formatBlogDate, getBlogIdentifier, normalizeBlogHtml } from '../blogHelpers';
+import { formatBlogDate, normalizeBlogHtml } from '../blogHelpers';
+
+function normalizeTitle(value = '') {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[\-_]+/g, ' ')
+    .replace(/[æÆ]/g, 'ae')
+    .replace(/[øØ]/g, 'o')
+    .replace(/[åÅ]/g, 'a')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[^a-z0-9\s'".]/g, '')
+    .trim();
+}
+
+async function fetchBlogByTitle(title) {
+  try {
+    const encodedTitle = encodeURIComponent(String(title || '').trim());
+    if (!encodedTitle) {
+      return null;
+    }
+
+    const res = await fetch(`https://pizza-adminblog.onrender.com/api/blogs/by-title/${encodedTitle}`, {
+      cache: 'no-store',
+    });
+
+    if (!res.ok) {
+      return null;
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching blog details:', error);
+    return null;
+  }
+}
 
 async function fetchBlogs() {
   try {
     const res = await fetch('https://pizza-adminblog.onrender.com/api/blogs', {
-      cache: 'force-cache',
+      cache: 'no-store',
     });
 
     if (!res.ok) {
@@ -17,23 +56,43 @@ async function fetchBlogs() {
     const data = await res.json();
     return Array.isArray(data) ? data : data.blogs || data.data || [];
   } catch (error) {
-    console.error('Error fetching blog details:', error);
+    console.error('Error fetching blogs fallback list:', error);
     return [];
   }
 }
 
-function findBlogById(blogs, blogId) {
-  const normalizedBlogId = String(blogId || '').trim().toLowerCase();
-  return blogs.find((blog, index) => String(getBlogIdentifier(blog, index)).trim().toLowerCase() === normalizedBlogId);
+function findBlogByFlexibleTitle(blogs, requestedTitle) {
+  const normalizedRequested = normalizeTitle(requestedTitle);
+  return blogs.find((blog) => normalizeTitle(blog?.title) === normalizedRequested) || null;
+}
+
+async function resolveBlogByRouteTitle(routeTitle) {
+  // Decode percent-encoding, then convert hyphens → spaces (slug format)
+  const decodedTitle = decodeURIComponent(routeTitle || '').replace(/-/g, ' ');
+  if (!decodedTitle.trim()) {
+    return null;
+  }
+
+  const byTitleBlog = await fetchBlogByTitle(decodedTitle);
+  if (byTitleBlog) {
+    return byTitleBlog;
+  }
+
+  // Fallback for legacy/dirty titles where API exact-match can miss.
+  const blogs = await fetchBlogs();
+  if (!blogs.length) {
+    return null;
+  }
+
+  return findBlogByFlexibleTitle(blogs, decodedTitle);
 }
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'edge';
 
 export async function generateMetadata({ params }) {
-  const blogs = await fetchBlogs();
-  const requestedBlogId = decodeURIComponent(params.blogId || '');
-  const blog = findBlogById(blogs, requestedBlogId);
+  const { blogId } = await params;
+  const blog = await resolveBlogByRouteTitle(blogId || '');
 
   if (!blog) {
     return {
@@ -49,14 +108,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogDetailPage({ params }) {
-  const blogs = await fetchBlogs();
-  
-  if (!blogs || blogs.length === 0) {
-    notFound();
-  }
-  
-  const requestedBlogId = decodeURIComponent(params.blogId || '');
-  const blog = findBlogById(blogs, requestedBlogId);
+  const { blogId } = await params;
+  const blog = await resolveBlogByRouteTitle(blogId || '');
 
   if (!blog) {
     notFound();
