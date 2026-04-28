@@ -68,12 +68,37 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external domains to reduce connection latency */}
+        {/* Only 2 preconnects max — Lighthouse warns if >4 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://pizza-adminblog.onrender.com" />
+
+        {/* Preload Playfair Display font — fixes render-blocking font warning */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+          as="style"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+          media="print"
+          onLoad="this.media='all'"
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+          />
+        </noscript>
+
+        {/* LCP image preload — tells browser about hero image from server HTML, not JS */}
+        {/* This is the #1 fix for LCP 7.3s → should drop to ~2-3s */}
+        <link
+          rel="preload"
+          as="image"
+          href="/_next/image?url=%2Fimages%2Fhero-pizza.jpeg&w=1920&q=75"
+          fetchPriority="high"
+        />
       </head>
       <body>
         <Script
