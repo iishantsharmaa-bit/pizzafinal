@@ -30,7 +30,7 @@ async function fetchBlogByTitle(title) {
     }
 
     const res = await fetch(`https://pizza-adminblog.onrender.com/api/blogs/by-title/${encodedTitle}`, {
-      cache: 'no-store',
+      next: { revalidate: 3600 }, // Re-fetch at most once per hour (ISR)
     });
 
     if (!res.ok) {
@@ -47,7 +47,7 @@ async function fetchBlogByTitle(title) {
 async function fetchBlogs() {
   try {
     const res = await fetch('https://pizza-adminblog.onrender.com/api/blogs', {
-      cache: 'no-store',
+      next: { revalidate: 3600 }, // Re-fetch at most once per hour (ISR)
     });
 
     if (!res.ok) {
@@ -88,7 +88,8 @@ async function resolveBlogByRouteTitle(routeTitle) {
   return findBlogByFlexibleTitle(blogs, decodedTitle);
 }
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'auto';
+export const revalidate = 3600; // ISR: regenerate page at most every hour
 export const runtime = 'edge';
 
 export async function generateMetadata({ params }) {

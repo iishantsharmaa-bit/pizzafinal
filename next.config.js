@@ -5,13 +5,16 @@ const nextConfig = {
   skipTrailingSlashRedirect: true,
   // Enable static optimization and caching
   experimental: {
-    // Optimize for static generation
     optimizePackageImports: ['@/components', '@/context'],
   },
   images: {
-    // Disable edge optimization to reduce edge requests
-    // Images will be served as-is instead of being optimized on-demand
-    unoptimized: true,
+    // Image optimization enabled — converts to WebP/AVIF, resizes for viewport
+    // This alone can save ~834 KiB per Lighthouse audit
+    unoptimized: false,
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 86400, // Cache optimized images for 24h
     domains: ['localhost', 'maps.googleapis.com'],
     remotePatterns: [
       {
@@ -20,15 +23,35 @@ const nextConfig = {
       },
     ],
   },
-  // Cache headers for static assets
   async headers() {
     return [
       {
+        // Long-term cache for static assets (JS, CSS, fonts, images)
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Optimized images — cache for 24h
+        source: '/_next/image/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
+        // HTML pages — short cache, always revalidate
         source: '/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400',
+            value: 'public, max-age=0, must-revalidate',
           },
         ],
       },

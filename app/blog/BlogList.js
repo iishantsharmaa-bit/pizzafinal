@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../components/Header';
-import { formatBlogDate, getBlogIdentifier, normalizeBlogHtml, getBlogExcerpt } from './blogHelpers';
+import { formatBlogDate, getBlogIdentifier } from './blogHelpers';
 
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
@@ -20,7 +21,6 @@ export default function BlogList() {
         }
         const data = await res.json();
         const blogArray = Array.isArray(data) ? data : (data.blogs || data.data || []);
-        console.log('Fetched blogs:', blogArray.length);
         setBlogs(blogArray);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -72,10 +72,13 @@ export default function BlogList() {
                     className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-100 cursor-pointer group"
                   >
                   <div className="relative aspect-[3/2] w-full overflow-hidden">
-                    <img
-                      src={blog.imageUrl}
-                      alt={blog.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    <Image
+                      src={blog.imageUrl || '/placeholder.jpg'}
+                      alt={blog.title || 'Blog image'}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                      loading={index === 0 ? 'eager' : 'lazy'}
                     />
                     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-700 shadow-sm">
                       {formattedDate}

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Header from './components/Header'
 import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
@@ -24,10 +25,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/hero-pizza.jpeg"
             alt="Fresh Italian Pizza"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
@@ -153,10 +157,12 @@ export default function Home() {
             <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100 transform hover:scale-105 flex flex-col">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-                <img
+                <Image
                   src="/images/freshly-baked.jpg"
                   alt="Freshly Baked"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-4 md:p-6 text-center bg-gradient-to-b from-white to-red-50 flex-grow flex flex-col justify-center">
@@ -173,10 +179,12 @@ export default function Home() {
             <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100 transform hover:scale-105 flex flex-col">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-                <img
+                <Image
                   src="/images/authentic-dough.jpg"
                   alt="Authentic Dough"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-4 md:p-6 text-center bg-gradient-to-b from-white to-yellow-50 flex-grow flex flex-col justify-center">
@@ -193,10 +201,12 @@ export default function Home() {
             <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100 transform hover:scale-105 flex flex-col">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-                <img
+                <Image
                   src="/images/melting-cheese.jpg"
                   alt="Melting Cheese"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-4 md:p-6 text-center bg-gradient-to-b from-white to-orange-50 flex-grow flex flex-col justify-center">
@@ -213,10 +223,12 @@ export default function Home() {
             <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group border border-gray-100 transform hover:scale-105 flex flex-col">
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80"
                   alt="Fresh Ingredients"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-4 md:p-6 text-center bg-gradient-to-b from-white to-green-50 flex-grow flex flex-col justify-center">
