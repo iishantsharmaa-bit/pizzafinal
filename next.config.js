@@ -9,10 +9,7 @@ const nextConfig = {
     optimizePackageImports: ['@/components', '@/context'],
   },
   images: {
-    // Disable edge optimization to reduce edge requests
-    // Images will be served as-is instead of being optimized on-demand
-    unoptimized: true,
-    domains: ['localhost', 'maps.googleapis.com'],
+    // Enable Next.js Image Optimization
     remotePatterns: [
       {
         protocol: 'https',
@@ -23,6 +20,24 @@ const nextConfig = {
   // Cache headers for static assets
   async headers() {
     return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
       {
         source: '/:path*',
         headers: [

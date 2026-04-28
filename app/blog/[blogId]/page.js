@@ -135,14 +135,16 @@ export default async function BlogDetailPage({ params }) {
 
           <article className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             {blog.imageUrl && (
-              <div className="relative w-full h-64 sm:h-80 md:h-[520px] overflow-hidden bg-gray-100">
+              <div className="w-full bg-gray-100 aspect-video sm:aspect-auto">
                 <Image
                   src={blog.imageUrl}
                   alt={blog.title || 'Blog image'}
-                  fill
-                  className="object-cover"
+                  width={900}
+                  height={400}
+                  className="w-full h-auto object-cover"
                   priority
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 56rem"
+                  quality={75}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 900px"
                 />
               </div>
             )}

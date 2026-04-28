@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Header from './components/Header'
 import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
@@ -24,10 +25,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/hero-pizza.jpeg"
             alt="Fresh Italian Pizza"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            quality={80}
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
