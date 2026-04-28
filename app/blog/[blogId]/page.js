@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Header from '../../components/Header';
 import { formatBlogDate, normalizeBlogHtml } from '../blogHelpers';
@@ -134,11 +135,14 @@ export default async function BlogDetailPage({ params }) {
 
           <article className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             {blog.imageUrl && (
-              <div className="relative w-full max-h-[520px] overflow-hidden bg-gray-100">
-                <img
+              <div className="relative w-full h-64 sm:h-80 md:h-[520px] overflow-hidden bg-gray-100">
+                <Image
                   src={blog.imageUrl}
                   alt={blog.title || 'Blog image'}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 56rem"
                 />
               </div>
             )}

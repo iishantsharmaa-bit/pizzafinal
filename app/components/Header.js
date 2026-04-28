@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 
 
@@ -16,11 +17,16 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
-            <img 
-              src="/logo.png" 
-              alt="Pizzamammamia" 
-              className="h-14 sm:h-18 2xl:h-24 w-auto object-contain"
-            />
+            <div className="relative h-14 sm:h-18 2xl:h-24 w-auto">
+              <Image
+                src="/logo.png"
+                alt="Pizzamammamia"
+                height={96}
+                width={96}
+                priority
+                className="h-full w-auto object-contain"
+              />
+            </div>
             {/* Show text ONLY on 2xl (>1536px) */}
             <div className="hidden 2xl:flex flex-col">
               <span className="text-2xl font-bold text-gray-900 tracking-tight">PIZZA MAMMA MIA</span>
