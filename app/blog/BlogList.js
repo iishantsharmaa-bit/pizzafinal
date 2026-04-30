@@ -13,7 +13,7 @@ export default function BlogList() {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const res = await fetch('https://pizza-adminblog.onrender.com/api/blogs');
+        const res = await fetch('https://pizza-adminblog-2.onrender.com/api/blogs');
         if (!res.ok) {
           console.error('Blog API response not OK:', res.status);
           setLoading(false);

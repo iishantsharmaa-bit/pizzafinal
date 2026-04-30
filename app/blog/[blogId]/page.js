@@ -29,7 +29,7 @@ async function fetchBlogByTitle(title) {
       return null;
     }
 
-    const res = await fetch(`https://pizza-adminblog.onrender.com/api/blogs/by-title/${encodedTitle}`, {
+    const res = await fetch(`https://pizza-adminblog-2.onrender.com/api/blogs/by-title/${encodedTitle}`, {
       next: { revalidate: 3600 }, // Re-fetch at most once per hour (ISR)
     });
 
@@ -46,7 +46,7 @@ async function fetchBlogByTitle(title) {
 
 async function fetchBlogs() {
   try {
-    const res = await fetch('https://pizza-adminblog.onrender.com/api/blogs', {
+    const res = await fetch('https://pizza-adminblog-2.onrender.com/api/blogs', {
       next: { revalidate: 3600 }, // Re-fetch at most once per hour (ISR)
     });
 
