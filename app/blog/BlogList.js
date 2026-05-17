@@ -19,6 +19,7 @@ export default function BlogList() {
           setLoading(false);
           return;
         }
+        
         const data = await res.json();
         const blogArray = Array.isArray(data) ? data : (data.blogs || data.data || []);
         setBlogs(blogArray);
