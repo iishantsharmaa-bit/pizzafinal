@@ -4,6 +4,21 @@ import { useState } from 'react';
 
 // Updated Google Reviews with proper dates (based on Nov 29, 2025)
 const googleReviews = [
+  { id: 100, name: 'Lingya W', date: 'May 12, 2026', rating: 5, text: 'Highly recommend Pizza Mama Mia! The pizzas are fantastic — fresh, flavorful, and perfectly baked.' },
+  { id: 101, name: 'Jørn Grøstad', date: 'May 11, 2026', rating: 5, text: 'Very good calzones!' },
+  { id: 102, name: 'vetle kjennerud', date: 'May 10, 2026', rating: 5, text: '' },
+  { id: 103, name: 'Bocong Sun', date: 'May 3, 2026', rating: 5, text: 'Stopped by while waiting for the kids who are at Rush. Impressive! Very good pizza! Real durum flour base, crisp and chewy in a whole other class! Thanks for the food! (The picture was a medium, enough for an adult)☺️ Very nice staff too!' },
+  { id: 104, name: 'Pilar Escribano', date: 'Apr 26, 2026', rating: 5, text: 'We loved the pizza and the staff was Amazing !' },
+  { id: 105, name: 'Karolina Polucha', date: 'Apr 17, 2026', rating: 5, text: 'Delicious pizza and very friendly service! :) The only downside is that it’s gone too quickly. Once you finish one, you’ll wish you had ordered two :( I highly recommend it!' },
+  { id: 106, name: 'Emil Shetelig', date: 'Apr 17, 2026', rating: 5, text: 'Brilliant service and very fast cooking. 10/10' },
+  { id: 107, name: 'Nikolai Tandberg', date: 'Apr 17, 2026', rating: 5, text: 'Very good, the people who worked there talked to us a lot and were quick with food' },
+  { id: 108, name: 'Oscar Ellneby', date: 'Apr 17, 2026', rating: 5, text: '' },
+  { id: 109, name: 'Zaineb', date: 'Apr 17, 2026', rating: 5, text: 'Absolutely delicious pizza. From now on this is the new place I order pizza from😊' },
+  { id: 110, name: 'Erlend Kheradmandi', date: 'Mar 17, 2026', rating: 5, text: 'Have eaten pizza here many times in the past year, and we are always satisfied! Fantastically good pizza and very nice service every time. Our favorites are Margherita and Completa – both are absolutely great. A place we keep coming back' },
+  { id: 111, name: 'waclaw werty', date: 'Feb 17, 2026', rating: 5, text: '5/5 best pizza in Bærum/ the best pizza in Bærum' },
+  { id: 112, name: 'Viktor Peja', date: 'Feb 17, 2026', rating: 5, text: 'Delicious pizza and very friendly service. I can wholeheartedly recommend it. 😇' },
+  { id: 113, name: 'Natii Molenda', date: 'Feb 17, 2026', rating: 5, text: 'Perfect 😍😍' },
+  { id: 114, name: 'Arne David-Andersen', date: 'Feb 17, 2026', rating: 5, text: 'try the pollo bianca' },
   { id: 0, name: 'Swapna Sivaraman', date: 'Nov 29, 2025', rating: 5, text: '' },
   { id: 1, name: 'Christian Rikheim Fangel', date: 'Nov 23, 2025', rating: 5, text: 'Best pizza in Bærum' },
   { id: 2, name: 'Oscar Evensen', date: 'Nov 22, 2025', rating: 5, text: 'Lovely kebab pizza, top notch in taste and the staff are absolutely amazing. I come here as often as I can because the pizza they deliver is top class. I recommend everyone to stop by!' },
@@ -80,10 +95,10 @@ export default function GoogleReviews() {
                 </svg>
               ))}
             </div>
-            <span className="text-2xl md:text-3xl font-bold text-gray-900">4.9</span>
+            <span className="text-2xl md:text-3xl font-bold text-gray-900">5.0</span>
           </div>
           <p className="text-gray-600 text-base md:text-lg">
-            Based on <span className="font-bold">94 reviews</span>
+            Based on <span className="font-bold">111 reviews</span>
           </p>
         </div>
 
