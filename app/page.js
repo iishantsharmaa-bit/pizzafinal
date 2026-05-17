@@ -41,9 +41,9 @@ export default function Home() {
             <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
               PIZZA MAMMA MIA HOSLE
             </h1>
-             <h4 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
+             <h6 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-green mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
               Gratulerer med dagen. Vi åpent i dag fra 14.00 - 22.00
-            </h4>  
+            </h6>  
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-6 md:mb-8 font-semibold drop-shadow-lg">
               {t('home.heroSubtitle')}
             </p>
