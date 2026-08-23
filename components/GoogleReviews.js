@@ -98,7 +98,7 @@ export default function GoogleReviews() {
             <span className="text-2xl md:text-3xl font-bold text-gray-900">5.0</span>
           </div>
           <p className="text-gray-600 text-base md:text-lg">
-            Based on <span className="font-bold">111 reviews</span>
+            Based on <span className="font-bold">132 reviews</span>
           </p>
         </div>
 
