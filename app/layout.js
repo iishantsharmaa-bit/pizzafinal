@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import { Providers } from './providers'
 import Script from 'next/script'
 
-// Enable ISR with 1-hour revalidation for meta crawlers
+// Enable ISR with 1-hour revalidation for meta crawler
 export const revalidate = 3600; // Revalidate every hour (3600 seconds)
 
 export const metadata = {
