@@ -14,7 +14,7 @@ export default function Home() {
 
 
  return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 md:pt-24 lg:pt-28">
       {/* Header */}
       <Header />
 
@@ -36,7 +36,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
 
-        <div className="relative flex flex-col items-center justify-center text-center px-4 pt-2 pb-8">
+        <div className="relative flex flex-col items-center justify-center text-center px-4 pt-2 md:pt-8 lg:pt-10 pb-8 md:pb-12">
           <div className="max-w-4xl">
             <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
               PIZZA MAMMA MIA HOSLE

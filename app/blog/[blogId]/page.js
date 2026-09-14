@@ -121,7 +121,7 @@ export default async function BlogDetailPage({ params }) {
   const blogHtml = normalizeBlogHtml(blog.content || '');
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-20 md:pt-28">
       <Header />
 
       <main className="py-10 px-4 sm:px-6 lg:px-8">

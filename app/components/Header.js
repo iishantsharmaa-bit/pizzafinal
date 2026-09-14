@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
-            <div className="relative h-14 sm:h-18 2xl:h-24 w-auto">
+            <div className="relative h-14 sm:h-16 lg:h-16 xl:h-18 2xl:h-20 w-auto">
               <Image
                 src="/logo.png"
                 alt="Pizzamammamia"
@@ -29,8 +29,8 @@ export default function Header() {
             </div>
             {/* Show text ONLY on 2xl (>1536px) */}
             <div className="hidden 2xl:flex flex-col">
-              <span className="text-2xl font-bold text-gray-900 tracking-tight">PIZZA MAMMA MIA</span>
-              <span className="text-base text-gray-600 font-semibold">HOSLE</span>
+              <span className="text-xl font-bold text-gray-900 tracking-tight">PIZZA MAMMA MIA</span>
+              <span className="text-xs text-gray-600 font-semibold tracking-wider">HOSLE</span>
             </div>
           </Link>
 
@@ -113,8 +113,8 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Language Switcher - ONLY on 2xl */}
-            <div className="hidden 2xl:flex items-center space-x-1 bg-gray-100 rounded-lg p-1">
+            {/* Language Switcher - Show from lg (1024px) onwards */}
+            <div className="hidden lg:flex items-center space-x-1 bg-gray-100 rounded-lg p-1">
               <button
                 onClick={() => changeLanguage('no')}
                 className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
@@ -137,10 +137,10 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Mobile Menu Button - Hide only on 2xl+ (1536px+) */}
+            {/* Mobile Menu Button - Hide on lg+ (1024px+) */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="2xl:hidden p-2 text-gray-700 hover:text-red-800 transition-colors"
+              className="lg:hidden p-2 text-gray-700 hover:text-red-800 transition-colors"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -157,7 +157,7 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {showMobileMenu && (
-        <div className="2xl:hidden bg-gradient-to-r from-orange-50 via-red-50 to-amber-50 border-t border-orange-200 pt-4 pb-2">
+        <div className="lg:hidden bg-gradient-to-r from-orange-50 via-red-50 to-amber-50 border-t border-orange-200 pt-4 pb-2">
           <nav className="flex flex-col space-y-2">
             {/* Navigation Links - Only show below lg (1024px) */}
             <div className="lg:hidden">

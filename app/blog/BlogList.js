@@ -33,7 +33,7 @@ export default function BlogList() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-20 md:pt-28">
       {/* Include Header just like the Contact page */}
       <Header />
 
