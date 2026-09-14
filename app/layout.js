@@ -81,15 +81,7 @@ export default function RootLayout({ children }) {
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
-          media="print"
-          onLoad="this.media='all'"
         />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
-          />
-        </noscript>
 
         {/* LCP image preload — tells browser about hero image from server HTML, not JS */}
         {/* This is the #1 fix for LCP 7.3s → should drop to ~2-3s */}

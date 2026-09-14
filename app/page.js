@@ -13,7 +13,7 @@ export default function Home() {
 
 
 
- return (
+  return (
     <div className="min-h-screen pt-20 md:pt-24 lg:pt-28">
       {/* Header */}
       <Header />
@@ -41,13 +41,13 @@ export default function Home() {
             <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
               PIZZA MAMMA MIA HOSLE
             </h1>
-              
+
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-6 md:mb-8 font-semibold drop-shadow-lg">
               {t('home.heroSubtitle')}
             </p>
 
             {/* ===== HØSTFERIE ANNOUNCEMENT CARD ===== */}
-            <div className="my-5 p-5 sm:p-7 bg-gradient-to-b from-red-950/90 to-red-900/80 backdrop-blur-md border border-amber-500/30 rounded-2xl max-w-lg mx-auto shadow-2xl animate-fadeIn" style={{boxShadow: '0 0 30px rgba(245,158,11,0.15), 0 20px 40px rgba(0,0,0,0.4)'}}>
+            <div className="my-5 p-5 sm:p-7 bg-gradient-to-b from-red-950/90 to-red-900/80 backdrop-blur-md border border-amber-500/30 rounded-2xl max-w-lg mx-auto shadow-2xl animate-fadeIn" style={{ boxShadow: '0 0 30px rgba(245,158,11,0.15), 0 20px 40px rgba(0,0,0,0.4)' }}>
 
               {/* Top badge */}
               <p className="text-xs sm:text-sm text-amber-400 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
@@ -80,11 +80,6 @@ export default function Home() {
               <p className="text-sm sm:text-base md:text-lg text-amber-200 font-semibold italic tracking-wide">
                 God høstferie til alle våre fantastiske kunder! ❤️
               </p>
-
-              {/* Sign-off - NOW READABLE */}
-              <p className="text-xs sm:text-sm text-white/60 mt-2.5 uppercase tracking-widest font-medium">
-                🇮🇹 Hilsen oss på Pizza Mamma Mia Hosle 🍕
-              </p>
             </div>
             {/* ===== END HØSTFERIE ANNOUNCEMENT CARD ===== */}
 
@@ -113,7 +108,6 @@ export default function Home() {
               </span>
             </a>
 
-            
 
           </div>
         </div>
