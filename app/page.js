@@ -13,8 +13,8 @@ export default function Home() {
 
 
 
-  return (
-    <div className="min-h-screen pt-20 md:pt-24 lg:pt-28">
+ return (
+    <div className="min-h-screen pt-20">
       {/* Header */}
       <Header />
 
@@ -23,7 +23,7 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/hero-pizza.jpeg"
@@ -36,61 +36,23 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
 
-        <div className="relative flex flex-col items-center justify-center text-center px-4 pt-2 md:pt-8 lg:pt-10 pb-8 md:pb-12">
+        <div className="relative h-full flex items-center justify-center text-center px-4">
           <div className="max-w-4xl">
             <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
               PIZZA MAMMA MIA HOSLE
             </h1>
-
+              
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-6 md:mb-8 font-semibold drop-shadow-lg">
               {t('home.heroSubtitle')}
             </p>
-
-            {/* ===== HØSTFERIE ANNOUNCEMENT CARD ===== */}
-            <div className="my-5 p-5 sm:p-7 bg-gradient-to-b from-red-950/90 to-red-900/80 backdrop-blur-md border border-amber-500/30 rounded-2xl max-w-lg mx-auto shadow-2xl animate-fadeIn" style={{ boxShadow: '0 0 30px rgba(245,158,11,0.15), 0 20px 40px rgba(0,0,0,0.4)' }}>
-
-              {/* Top badge */}
-              <p className="text-xs sm:text-sm text-amber-400 font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
-                🍂 STENGT / CLOSED 🍂
-              </p>
-
-              {/* Title */}
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2 flex items-center justify-center gap-2">
-                VI TAR HØSTFERIE <span className="inline-block animate-pulse">🍂</span>
-              </h2>
-
-              {/* Closed dates */}
-              <p className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-wide uppercase">
-                STENGT <span className="text-amber-400 font-extrabold">14. SEPT – 1. OKT</span>
-              </p>
-
-              <div className="w-20 h-[1px] bg-amber-500/30 mx-auto my-3" />
-
-              {/* Reopening */}
-              <p className="text-xs sm:text-sm text-white/70 uppercase tracking-wider mb-1">
-                VI ÅPNER IGJEN
-              </p>
-              <p className="text-base sm:text-lg md:text-xl font-bold text-white uppercase tracking-wide">
-                <span className="text-emerald-400 font-extrabold">2. OKTOBER</span> – MED MASSE GOD PIZZA! 🍕😊
-              </p>
-
-              <div className="w-20 h-[1px] bg-amber-500/30 mx-auto my-3" />
-
-              {/* Farewell - NOW BIGGER & PROMINENT */}
-              <p className="text-sm sm:text-base md:text-lg text-amber-200 font-semibold italic tracking-wide">
-                God høstferie til alle våre fantastiske kunder! ❤️
-              </p>
-            </div>
-            {/* ===== END HØSTFERIE ANNOUNCEMENT CARD ===== */}
-
-            <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center mb-4 md:mb-6">
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="inline-block">
-                <button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-full text-xs sm:text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/50 active:scale-95 whitespace-nowrap">
+            <div className="flex flex-col gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6">
+              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/50 active:scale-95">
                   View Deals 🏷️
                 </button>
               </a>
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="inline-block">
-                <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-full text-xs sm:text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95 whitespace-nowrap">
+              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
                   {t('home.viewMenu')} 📋
                 </button>
               </a>
@@ -108,6 +70,7 @@ export default function Home() {
               </span>
             </a>
 
+            
 
           </div>
         </div>
