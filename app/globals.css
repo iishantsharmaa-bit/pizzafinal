@@ -377,3 +377,149 @@ a {
 .blog-preview ol {
   margin-left: 1rem;
 }
+
+/* 🎂 2-års bursdag – festlige effekter */
+.bday-border {
+  background: linear-gradient(90deg, #facc15, #f472b6, #dc2626, #16a34a, #facc15, #f472b6, #facc15);
+  background-size: 300% 100%;
+  animation: bday-border-move 6s linear infinite;
+}
+@keyframes bday-border-move {
+  to { background-position: 300% 0; }
+}
+
+.bday-flag {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  animation: bday-flag-sway 2.4s ease-in-out infinite;
+}
+@keyframes bday-flag-sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+
+.bday-confetti {
+  opacity: 0;
+  animation-name: bday-confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes bday-confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.75; }
+  85% { opacity: 0.6; }
+  100% { transform: translateY(300px) rotate(540deg); opacity: 0; }
+}
+
+.bday-shimmer {
+  background: linear-gradient(110deg, #fbbf24 35%, #fff7d1 50%, #fbbf24 65%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: bday-shimmer 3s linear infinite;
+}
+@keyframes bday-shimmer {
+  from { background-position: 150% 0; }
+  to { background-position: -100% 0; }
+}
+
+.bday-wiggle {
+  animation: bday-wiggle 3s ease-in-out infinite;
+}
+@keyframes bday-wiggle {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bday-border, .bday-flag, .bday-confetti, .bday-shimmer, .bday-wiggle {
+    animation: none;
+  }
+  .bday-confetti { display: none; }
+}
+
+/* 🎉 Hele hero-seksjonen – festdekor */
+.party-garland {
+  transform-origin: top center;
+  animation: party-garland 5s ease-in-out infinite;
+}
+@keyframes party-garland {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.party-flag {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transform: translateX(-50%) rotate(var(--a, 0deg));
+  animation: party-flag 2.6s ease-in-out infinite;
+}
+@keyframes party-flag {
+  0%, 100% { transform: translateX(-50%) rotate(calc(var(--a, 0deg) - 7deg)); }
+  50% { transform: translateX(-50%) rotate(calc(var(--a, 0deg) + 7deg)); }
+}
+
+.party-balloon {
+  animation-name: party-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+@keyframes party-rise {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1000px); }
+}
+.party-balloon-sway {
+  animation: party-balloon-sway 4s ease-in-out infinite;
+}
+@keyframes party-balloon-sway {
+  0%, 100% { translate: -12px 0; rotate: -5deg; }
+  50% { translate: 12px 0; rotate: 5deg; }
+}
+
+.party-fall-a, .party-fall-b {
+  opacity: 0;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.party-fall-a { animation-name: party-fall-a; }
+.party-fall-b { animation-name: party-fall-b; }
+@keyframes party-fall-a {
+  0% { transform: translate(0, 0) rotate(0deg) rotateX(0deg); opacity: 0; }
+  8% { opacity: 0.9; }
+  50% { transform: translate(30px, 55vh) rotate(360deg) rotateX(180deg); }
+  90% { opacity: 0.8; }
+  100% { transform: translate(-10px, 115vh) rotate(720deg) rotateX(360deg); opacity: 0; }
+}
+@keyframes party-fall-b {
+  0% { transform: translate(0, 0) rotate(0deg) rotateY(0deg); opacity: 0; }
+  8% { opacity: 0.9; }
+  50% { transform: translate(-30px, 55vh) rotate(-300deg) rotateY(180deg); }
+  90% { opacity: 0.8; }
+  100% { transform: translate(15px, 115vh) rotate(-600deg) rotateY(360deg); opacity: 0; }
+}
+
+.party-twinkle {
+  opacity: 0;
+  animation: party-twinkle 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.9));
+}
+@keyframes party-twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+
+.party-glow {
+  animation: party-glow 5s ease-in-out infinite;
+}
+@keyframes party-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .party-garland, .party-flag, .party-balloon-sway, .party-twinkle, .party-glow { animation: none; }
+  .party-twinkle { opacity: 0.8; }
+  .party-balloon, .party-fall-a, .party-fall-b { display: none; }
+}

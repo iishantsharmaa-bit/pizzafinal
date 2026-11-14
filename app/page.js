@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import Header from './components/Header'
+import AnniversaryOffer from './components/AnniversaryOffer'
+import HeroCelebration from './components/HeroCelebration'
 import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -23,7 +25,7 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] overflow-hidden">
+      <section className="relative min-h-[500px] sm:min-h-[600px] md:min-h-[700px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/hero-pizza.jpeg"
@@ -36,23 +38,30 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
 
-        <div className="relative h-full flex items-center justify-center text-center px-4">
+        {/* 🎉 Festdekor over hele hero-seksjonen */}
+        <HeroCelebration />
+
+        <div className="relative z-10 min-h-[500px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center text-center px-4 py-10 md:py-16">
           <div className="max-w-4xl">
             <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
               PIZZA MAMMA MIA HOSLE
             </h1>
-              
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-6 md:mb-8 font-semibold drop-shadow-lg">
+
+            <p className="-mt-1 md:-mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 mb-4 md:mb-6 font-semibold drop-shadow-lg">
               {t('home.heroSubtitle')}
             </p>
-            <div className="flex flex-col gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6">
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/50 active:scale-95">
+
+            {/* 2-års jubileum – tilbud med nedtelling */}
+            <AnniversaryOffer />
+
+            <div className="flex flex-row gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6">
+              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
+                <button className="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 px-4 sm:px-8 md:px-10 py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/50 active:scale-95">
                   View Deals 🏷️
                 </button>
               </a>
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
+              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
+                <button className="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 sm:px-8 md:px-10 py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
                   {t('home.viewMenu')} 📋
                 </button>
               </a>
