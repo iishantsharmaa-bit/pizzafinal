@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import Header from './components/Header'
-import AnniversaryOffer from './components/AnniversaryOffer'
-import HeroCelebration from './components/HeroCelebration'
+import ClosedNotice from './components/ClosedNotice'
 import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -38,9 +37,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-red-900/40"></div>
         </div>
 
-        {/* 🎉 Festdekor over hele hero-seksjonen */}
-        <HeroCelebration />
-
         <div className="relative z-10 min-h-[500px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center text-center px-4 py-10 md:py-16">
           <div className="max-w-4xl">
             <h1 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 md:mb-6 drop-shadow-2xl animate-fadeIn font-bold leading-tight">
@@ -51,8 +47,8 @@ export default function Home() {
               {t('home.heroSubtitle')}
             </p>
 
-            {/* 2-års jubileum – tilbud med nedtelling */}
-            <AnniversaryOffer />
+            {/* Ferie – stengt-melding */}
+            <ClosedNotice />
 
             <div className="flex flex-row gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6">
               <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
