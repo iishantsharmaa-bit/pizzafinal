@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Header from './components/Header'
 import AnniversaryOffer from './components/AnniversaryOffer'
@@ -8,7 +9,8 @@ import GoogleReviews from '@/components/GoogleReviews'
 import { useLanguage } from '@/context/LanguageContext'
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [showClosedModal, setShowClosedModal] = useState(false);
 
 
 
@@ -51,20 +53,44 @@ export default function Home() {
               {t('home.heroSubtitle')}
             </p>
 
+            <div
+              className="mx-auto mb-4 max-w-lg rounded-2xl border border-amber-500/30 bg-gradient-to-b from-red-950/90 to-red-900/80 px-5 py-4 shadow-2xl backdrop-blur-md sm:px-7"
+              style={{ boxShadow: '0 0 30px rgba(245,158,11,0.15), 0 20px 40px rgba(0,0,0,0.4)' }}
+            >
+              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-amber-400 sm:text-sm">
+                🍂 {language === 'no' ? 'STENGT' : 'CLOSED'} 🍂
+              </p>
+              <p className="text-base font-bold text-white sm:text-lg">
+                {language === 'no'
+                  ? 'Vi holder stengt på grunn av ferie.'
+                  : 'We are closed because of vacation.'}
+              </p>
+            </div>
+
             {/* 2-års jubileum – tilbud med nedtelling */}
             <AnniversaryOffer />
 
             <div className="flex flex-row gap-3 md:gap-4 justify-center items-center mb-4 md:mb-6">
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-                <button className="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 px-4 sm:px-8 md:px-10 py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/50 active:scale-95">
-                  View Deals 🏷️
+              <div className="flex-1 sm:flex-none">
+                <button
+                  type="button"
+                  aria-disabled="true"
+                  onClick={() => setShowClosedModal(true)}
+                  className="w-full sm:w-auto whitespace-nowrap cursor-not-allowed bg-gradient-to-r from-yellow-500/70 to-yellow-600/70 px-4 py-3 text-sm font-bold text-gray-700/80 opacity-80 shadow-xl sm:px-8 md:px-10 md:py-4 md:text-lg rounded-full"
+                >
+                  <span className="inline-flex items-center gap-2"><span aria-hidden="true">🏷️</span> View Deals</span>
                 </button>
-              </a>
-              <a href="https://www.foodbooking.com/api/fb/de_m1v" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-                <button className="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 sm:px-8 md:px-10 py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-bold shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 active:scale-95">
-                  {t('home.viewMenu')} 📋
+              </div>
+              <div className="flex-1 sm:flex-none">
+                <button
+                  type="button"
+                  aria-disabled="true"
+                  onClick={() => setShowClosedModal(true)}
+                  className="w-full sm:w-auto whitespace-nowrap cursor-not-allowed bg-gradient-to-r from-red-600/70 to-red-700/70 px-4 py-3 text-sm font-bold text-white/80 opacity-80 shadow-xl sm:px-8 md:px-10 md:py-4 md:text-lg rounded-full"
+                >
+                  <span className="inline-flex items-center gap-2">{t('home.viewMenu')} <span aria-hidden="true">📋</span></span>
                 </button>
-              </a>
+              </div>
             </div>
             {/* Phone Number - Fully Clickable */}
             <a
@@ -282,6 +308,43 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {showClosedModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-4 backdrop-blur-sm sm:items-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="closed-modal-title"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setShowClosedModal(false);
+          }}
+        >
+          <div className="w-full max-w-md rounded-2xl border border-amber-500/30 bg-gradient-to-b from-red-950 to-red-900 p-6 text-center shadow-2xl sm:p-8">
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-amber-400 sm:text-sm">
+              🍂 {language === 'no' ? 'STENGT / CLOSED' : 'CLOSED / STENGT'} 🍂
+            </p>
+            <h2 id="closed-modal-title" className="text-xl font-bold text-white sm:text-2xl">
+              {language === 'no'
+                ? 'Vi holder stengt på grunn av ferie.'
+                : 'We are closed because of vacation.'}
+            </h2>
+            <p className="mt-3 text-sm text-white/75">
+              {language === 'no'
+                ? 'We are closed because of vacation.'
+                : 'Vi holder stengt på grunn av ferie.'}
+            </p>
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowClosedModal(false)}
+                className="rounded-full border border-amber-300/50 bg-amber-400 px-8 py-3 font-bold text-red-950 shadow-lg transition-colors hover:bg-amber-300"
+              >
+                {language === 'no' ? 'Lukk' : 'Close'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   )
